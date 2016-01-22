@@ -8,6 +8,18 @@
                 "description": "Deployment location"
             }
         },
+        "osDiskVhdUri": {
+            "type": "string",
+            "metadata": {
+            "description": "Uri of the existing VHD"
+            }
+        },
+        "dataDiskUri": {
+            "type": "string",
+            "metadata": {
+            "description": "URL to data disk resource"
+            }
+        },
         "virtualNetworkName": {
             "type": "string",
             "defaultValue": "Virtual_Network",
@@ -217,9 +229,6 @@
         }
     },
     "variables": {
-        "imagePublisher": "NVA_publisher",
-        "imageOffer": "NVA_offer",
-        "imageSKU": "NVA_sku",
         "OSDiskName": "[concat(parameters('vmName'),'-disk')]",
         "vmStorageAccountContainerName": "vhds",
         "vnetID": "[resourceId('Microsoft.Network/virtualNetworks', parameters('virtualNetworkName'))]",
@@ -492,19 +501,28 @@
                 },
                 "osProfile": "[variables('osProfile')]",
                 "storageProfile": {
-                    "imageReference": {
-                        "publisher": "[variables('imagePublisher')]",
-                        "offer": "[variables('imageOffer')]",
-                        "sku": "[variables('imageSKU')]",
-                        "version": "latest"
-                    },
-                    "osDisk": {
-                        "name": "[variables('OSDiskName')]",
+                    "dataDisks": [
+	                {
+                        "name": "dataDisk",
+                        "diskSizeGB": "[parameters('sizeOfEachDataDiskInGB')]",
+                        "lun": 0,
                         "vhd": {
-                            "uri": "[concat('http://',parameters('newStorageAccountName'),'.blob.core.windows.net/vhds/', variables('OSDiskName'), '.vhd')]"
+                            "Uri": "[parameters('dataDiskUri')]"
                         },
+                        "createOption": "Empty"
+	                }
+	                ],
+                    "osDisk": {
+                        "name": "[concat(parameters('vmName'),'-osDisk')]",
+                        "osType": "[parameters('osType')]",
                         "caching": "ReadWrite",
-                        "createOption": "FromImage"
+                        "createOption": "FromImage",
+                        "image": {
+                            "uri": "[parameters('osDiskVhdUri')]"
+                        },
+                        "vhd": {
+                        "uri": "[variables('osDiskVhdName')]"
+                        }
                     }
                 },
                 "networkProfile": {
