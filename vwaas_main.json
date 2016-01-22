@@ -167,7 +167,7 @@
         },
         "publicIPAddressName": {
             "type": "string",
-            "defaultValue": "",
+            "defaultValue": "myapplianceip",
             "metadata": {
                 "description": "Name of the Public IP Address"
             }
@@ -192,7 +192,7 @@
         },
         "publicIPExistingRGName": {
             "type": "string",
-            "defaultValue": "",
+            "defaultValue": "existingpiprg",
             "metadata": {
                 "description": "Resource Group containing existing public IP"
             }
