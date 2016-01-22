@@ -14,12 +14,6 @@
             "description": "Uri of the existing VHD"
             }
         },
-        "dataDiskUri": {
-            "type": "string",
-            "metadata": {
-            "description": "URL to data disk resource"
-            }
-        },
         "virtualNetworkName": {
             "type": "string",
             "defaultValue": "Virtual_Network",
