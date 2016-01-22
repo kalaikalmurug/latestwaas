@@ -235,8 +235,8 @@
     "variables": {
     	"osType": "Linux",
         "OSDiskName": "[concat(parameters('vmName'),'-disk')]",
-        "osDiskVhdName": "[concat('http://',parameters('StorageAccountName'),'.blob.core.windows.net/vhds',parameters('vmName'),'osDisk.vhd')]",
-        "dataDiskVhdName": "[concat('http://',parameters('StorageAccountName'),'.blob.core.windows.net/vhds',parameters('vmName'),'dataDisk.vhd')]",
+        "osDiskVhdName": "[concat('http://',parameters('StorageAccountName'),'.blob.core.windows.net/vhds/',parameters('vmName'),'osDisk.vhd')]",
+        "dataDiskVhdName": "[concat('http://',parameters('StorageAccountName'),'.blob.core.windows.net/vhds/',parameters('vmName'),'dataDisk.vhd')]",
         "vmStorageAccountContainerName": "vhds",
         "vnetID": "[resourceId('Microsoft.Network/virtualNetworks', parameters('virtualNetworkName'))]",
         "subnet1Ref": "[concat(variables('vnetID'),'/subnets/', parameters('Subnet1Name'))]",
