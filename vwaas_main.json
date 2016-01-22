@@ -23,7 +23,7 @@
         },
         "virtualNetworkExistingRGName": {
             "type": "string",
-            "defaultValue": "",
+            "defaultValue": "existingnwrg",
             "metadata": {
                 "description": "Identifies whether to use new or existing Storage Account"
             }
@@ -160,7 +160,7 @@
         },
         "storageAccountExistingRG": {
             "type": "string",
-            "defaultValue": "",
+            "defaultValue": "existingsarg",
             "metadata": {
                 "description": "Resource Group containing existing storage account"
             }
