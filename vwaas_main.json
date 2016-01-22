@@ -233,6 +233,7 @@
         }
     },
     "variables": {
+    	"osType": "Linux",
         "OSDiskName": "[concat(parameters('vmName'),'-disk')]",
         "osDiskVhdName": "[concat('http://',parameters('StorageAccountName'),'.blob.core.windows.net/',parameters('vmName'),'osDisk.vhd')]",
         "dataDiskVhdName": "[concat('http://',parameters('StorageAccountName'),'.blob.core.windows.net/',parameters('vmName'),'dataDisk.vhd')]",
@@ -522,7 +523,7 @@
 	                ],
                     "osDisk": {
                         "name": "[concat(parameters('vmName'),'-osDisk')]",
-                        "osType": "[parameters('osType')]",
+                        "osType": "[variables('osType')]",
                         "caching": "ReadWrite",
                         "createOption": "FromImage",
                         "image": {
