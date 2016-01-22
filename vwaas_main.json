@@ -57,13 +57,6 @@
                 "description": "Subnet 1 Name"
             }
         },
-        "subnet1StartAddress" : {
-            "type" : "string",
-            "defaultValue": "10.0.0.5",
-            "metadata" : {
-                "description" : "Subnet 1 Starting IP Address"
-            }
-        },
         "Subnet2Prefix": {
             "type": "string",
             "defaultValue": "10.0.1.0/24",
@@ -76,13 +69,6 @@
             "defaultValue": "Subnet2",
             "metadata": {
                 "description": "Subnet 2 Name"
-            }
-        },
-        "subnet2StartAddress" : {
-            "type" : "string",
-            "defaultValue": "10.0.1.5",
-            "metadata" : {
-                "description" : "Subnet 1 Starting IP Address"
             }
         },
         "adminUsername": {
