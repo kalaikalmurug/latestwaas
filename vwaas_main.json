@@ -120,6 +120,13 @@
                 "description": "Authentication Type to chose for the Virtual Machines"
             }
         },
+        "customData": {
+           "type": "string",
+           "defaultValue": "CentralManagerIPAddress",
+           "metadata": {
+           "description": "String passed down to the Virtual Machine."
+           }
+       },
         "vmName": {
             "type": "string",
             "defaultValue": "myappliance",
@@ -247,6 +254,7 @@
         "osProfilesshPublicKey": {
             "computername": "[parameters('vmName')]",
             "adminUsername": "[parameters('adminUsername')]",
+            "customData": "[base64(parameters('customData'))]",
             "linuxConfiguration": {
                 "disablePasswordAuthentication": "true",
                 "ssh": {
@@ -262,7 +270,8 @@
         "osProfilepassword": {
             "computername": "[parameters('vmName')]",
             "adminUsername": "[parameters('adminUsername')]",
-            "adminPassword": "[parameters('adminPassword')]"
+            "adminPassword": "[parameters('adminPassword')]",
+            "customData": "[base64(parameters('customData'))]"
         }
     },
     "resources": [
