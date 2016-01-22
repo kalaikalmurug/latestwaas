@@ -30,28 +30,29 @@
         },
         "virtualNetworkAddressPrefix": {
             "type": "string",
-            "defaultValue": "",
+            "defaultValue": "10.0.0.0/16",
             "metadata": {
                 "description": "Virtual Network Address prefix"
             }
         },
         "vnetNewOrExisting" : {
             "type" : "string",
-            "defaultValue" : "",
+            "defaultValue" : "new",
+            "allowedValues" : ["new", "existing"],
             "metadata": {
                 "description": "Identifies whether to use new or existing Virtual Network"
             }
         },
         "Subnet1Prefix": {
             "type": "string",
-            "defaultValue": "",
+            "defaultValue": "10.0.0.0/24",
             "metadata": {
                 "description": "Subnet 1 Prefix"
             }
         },
         "Subnet1Name": {
             "type": "string",
-            "defaultValue": "",
+            "defaultValue": "Subnet1",
             "metadata": {
                 "description": "Subnet 1 Name"
             }
@@ -64,14 +65,14 @@
         },
         "Subnet2Prefix": {
             "type": "string",
-            "defaultValue": "",
+            "defaultValue": "10.0.1.0/24",
             "metadata": {
                 "description": "Subnet 2 Prefix"
             }
         },
         "Subnet2Name": {
             "type": "string",
-            "defaultValue": "",
+            "defaultValue": "Subnet2",
             "metadata": {
                 "description": "Subnet 2 Name"
             }
