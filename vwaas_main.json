@@ -134,7 +134,7 @@
                 "description": "Name for the Virtual Machine."
             }
         },
-        "newStorageAccountName": {
+        "StorageAccountName": {
             "type": "string",
             "metadata": {
                 "description": "Unique Name for Storage Account where the Virtual Machine's disks will be placed."
@@ -227,7 +227,7 @@
                 "description" : "Size of the Virtual Machine"
             }
         },
-        "sizeOfEachDataDiskInGB": {
+        "sizeOfDataDiskInGB": {
             "type": "string",
             "defaultValue" : "160",
             "metadata": {
@@ -237,8 +237,8 @@
     },
     "variables": {
         "OSDiskName": "[concat(parameters('vmName'),'-disk')]",
-        "osDiskVhdName": "[concat('http://',parameters('newStorageAccountName'),'.blob.core.windows.net/vhds/',parameters('vmName'),'osDisk.vhd')]",
-        "dataDiskVhdName": "[concat('http://',parameters('newStorageAccountName'),'.blob.core.windows.net/vhds/',parameters('vmName'),'dataDisk.vhd')]",
+        "osDiskVhdName": "[concat('http://',parameters('StorageAccountName'),'.blob.core.windows.net/vhds/',parameters('vmName'),'osDisk.vhd')]",
+        "dataDiskVhdName": "[concat('http://',parameters('StorageAccountName'),'.blob.core.windows.net/vhds/',parameters('vmName'),'dataDisk.vhd')]",
         "vmStorageAccountContainerName": "vhds",
         "vnetID": "[resourceId('Microsoft.Network/virtualNetworks', parameters('virtualNetworkName'))]",
         "subnet1Ref": "[concat(variables('vnetID'),'/subnets/', parameters('Subnet1Name'))]",
@@ -293,7 +293,7 @@
                         "value": "[parameters('storageAccountType')]"
                     },
                     "storageAccountName": {
-                        "value": "[parameters('newStorageAccountName')]"
+                        "value": "[parameters('StorageAccountName')]"
                     },
                     "storageAccountExistingRG": {
                         "value": "[parameters('storageAccountExistingRG')]"
@@ -515,7 +515,7 @@
                     "dataDisks": [
 	                {
                         "name": "dataDisk",
-                        "diskSizeGB": "[parameters('sizeOfEachDataDiskInGB')]",
+                        "diskSizeGB": "[parameters('sizeOfDataDiskInGB')]",
                         "lun": 0,
                         "vhd": {
                             "Uri": "[parameters('dataDiskUri')]"
@@ -555,7 +555,7 @@
                 "diagnosticsProfile": {
                     "bootDiagnostics": {
                         "enabled": "true",
-                        "storageUri": "[concat('http://',parameters('newStorageAccountName'),'.blob.core.windows.net')]"
+                        "storageUri": "[concat('http://',parameters('StorageAccountName'),'.blob.core.windows.net')]"
                     }
                 }
             }
