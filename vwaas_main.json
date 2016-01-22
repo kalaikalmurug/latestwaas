@@ -59,6 +59,7 @@
         },
         "subnet1StartAddress" : {
             "type" : "string",
+            "defaultValue": "10.0.0.5",
             "metadata" : {
                 "description" : "Subnet 1 Starting IP Address"
             }
@@ -79,6 +80,7 @@
         },
         "subnet2StartAddress" : {
             "type" : "string",
+            "defaultValue": "10.0.1.5",
             "metadata" : {
                 "description" : "Subnet 1 Starting IP Address"
             }
