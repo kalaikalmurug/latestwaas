@@ -494,11 +494,6 @@
             "type": "Microsoft.Compute/virtualMachines",
             "name": "[parameters('vmName')]",
             "location": "[parameters('location')]",
-            "plan": {
-                "name": "NVA_name",
-                "publisher": "NVA_publisher",
-                "product": "NVA_product"
-            },
             "dependsOn": [
                 "[concat('Microsoft.Resources/deployments/', 'SettingUpStorageAccount')]",
                 "[concat('Microsoft.Network/networkInterfaces/',parameters('vmName'),'-Nic0')]",
