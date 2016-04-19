@@ -456,7 +456,8 @@
             "name": "[concat(parameters('vmName'),'-Nic1')]",
             "location": "[parameters('location')]",
             "dependsOn": [
-                "[concat('Microsoft.Resources/deployments/', 'SettingUpVirtualNetwork')]"
+                "[concat('Microsoft.Resources/deployments/', 'SettingUpVirtualNetwork')]",
+                "[concat('Microsoft.Network/networkInterfaces/',parameters('vmName'),'-Nic0')]"
             ],
             "properties": {
                 "ipConfigurations": [
