@@ -461,9 +461,9 @@
             "name": "[parameters('vmName')]",
             "location": "[parameters('location')]",
             "plan": {
-                "name": "waas-azure-200",
+                "name": "vwaas-azure-200",
                 "publisher": "cisco",
-                "product": "cisco-waas"
+                "product": "vwaas-azure"
             },
             "dependsOn": [
                 "[concat('Microsoft.Resources/deployments/', 'SettingUpStorageAccount')]",
