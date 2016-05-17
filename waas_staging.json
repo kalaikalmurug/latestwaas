@@ -489,7 +489,7 @@
                         },
                         "caching": "ReadWrite",
                         "createOption": "FromImage"
-                    }
+                    },
                     "dataDisks": [
 	                {
                         "name": "dataDisk",
